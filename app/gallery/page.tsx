@@ -2,6 +2,7 @@ import { Hero } from "@/components/home/Hero";
 import { ContactTeaser } from "@/components/shared/ContactTeaser";
 import { Newsletter } from "@/components/shared/Newsletter";
 import { Masonry, MasonryItem } from "@/components/ui/Masonry";
+import Image from "next/image";
 
 export default function ReferencesPage() {
   return (
@@ -76,9 +77,11 @@ export default function ReferencesPage() {
           ].map((project, i) => (
             <MasonryItem key={i}>
               <div className="group relative overflow-hidden bg-neutral-100 mb-8 cursor-pointer">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
+                  width={1200}
+                  height={800}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-8 lg:p-12">

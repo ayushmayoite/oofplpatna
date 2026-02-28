@@ -43,7 +43,7 @@ const BASE_PRICE = 499;
 
 export function ConfiguratorCSS() {
   const [decor, setDecor] = useState<DecorColor>(DECORS[0]);
-  const [frame, setFrame] = useState<DecorColor>(FRAMES[0]);
+  const frame = FRAMES[0];
   const [size, setSize] = useState<SizeOption>(SIZES[1]);
   const [isDragging, setIsDragging] = useState(false);
 

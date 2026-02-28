@@ -14,7 +14,6 @@ interface ContentBlockProps {
     align?: "left" | "right";
     linkText?: string;
     linkHref?: string;
-    index?: number;
 }
 
 export function ContentBlock({
@@ -25,8 +24,7 @@ export function ContentBlock({
     imageAlt = "OandO Office Solution",
     align = "left",
     linkText,
-    linkHref,
-    index = 0
+    linkHref
 }: ContentBlockProps) {
     const isRight = align === "right";
 
@@ -45,9 +43,11 @@ export function ContentBlock({
                     >
                         <div className="relative aspect-[4/3] overflow-hidden group">
                             <div className="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                            <img
+                            <Image
                                 src={imageSrc}
                                 alt={imageAlt}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                             />
                         </div>

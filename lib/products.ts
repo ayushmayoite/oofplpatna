@@ -25,7 +25,7 @@ export const products: Product[] = [
         category: "Cafe",
         price: "₹4,500",
         description: "Vibrant and durable seating for cafeterias and breakout zones. Easy to clean and stackable.",
-        images: ["/products/chair-cafeteria.jpg"],
+        images: ["/images/products/chair-cafeteria.webp"],
         features: ["Stackable", "Easy Clean", "Vibrant Colors", "Durable"],
         specs: [{ label: "Material", value: "Polypropylene" }],
         related: ["classy-series"]
@@ -40,7 +40,7 @@ export const products: Product[] = [
         category: "Workstations",
         price: "₹25,000 per seat",
         description: "A highly modular workstation system designed for productivity. Integrated cable management and privacy screens.",
-        images: ["/products/deskpro-workstation-1.jpg"],
+        images: ["/images/products/deskpro-workstation-1.webp"],
         features: ["Modular", "Cable Management", "Privacy Screen", "Customizable Colors"],
         specs: [{ label: "Table Top", value: "25mm PLPB" }, { label: "Legs", value: "Powder Coated" }],
         related: ["linear-workstation", "myel-executive-chair"]
@@ -52,7 +52,7 @@ export const products: Product[] = [
         category: "Workstations",
         price: "₹22,000 per seat",
         description: "Clean lines and open design. The Linear Workstation is perfect for modern, collaborative offices.",
-        images: ["/products/linear-workstation-1.jpg"],
+        images: ["/images/products/linear-workstation-1.webp"],
         features: ["Linear Layout", "Shared Legs", "Cost Effective"],
         specs: [{ label: "Width", value: "1200mm per seat" }],
         related: ["deskpro-system"]
@@ -64,7 +64,7 @@ export const products: Product[] = [
         category: "Workstations",
         price: "PO A",
         description: "A robust partitioning system based on 60mm and 30mm profiles. Ideal for creating cubicles and semi-private spaces.",
-        images: ["/products/60x30-workstation-1.jpg"],
+        images: ["/images/products/60x30-workstation-1.webp"],
         features: ["High Partition", "Glass Options", "Pinup Boards", "Raceways"],
         specs: [{ label: "Thouckness", value: "60mm" }],
         related: ["tcs-workspace"]
@@ -76,7 +76,7 @@ export const products: Product[] = [
         category: "Workstations",
         price: "PO A",
         description: "A custom-designed workspace solution tailored for large corporate requirements.",
-        images: ["/products/tcs-workspace-1.jpg"],
+        images: ["/images/products/tcs-workspace-1.webp"],
         features: ["Custom Dimensions", "Corporate Branding", "Heavy Duty"],
         specs: [{ label: "Usage", value: "IT / Corporate" }],
         related: ["honda-office"]
@@ -88,7 +88,7 @@ export const products: Product[] = [
         category: "Workstations",
         price: "PO A",
         description: "Premium office setup showcasing our capabilities in delivering large-scale infrastructure projects.",
-        images: ["/products/honda-office-1.jpg"],
+        images: ["/images/products/honda-office-1.webp"],
         features: ["Turnkey Solution", "Premium Finishes"],
         specs: [{ label: "Client", value: "Honda" }],
         related: ["deskpro-system"]
@@ -102,7 +102,7 @@ export const products: Product[] = [
         category: "Meeting Tables",
         price: "₹1,50,000",
         description: "A grand meeting table for the boardroom. Features power connectivity and a premium finish.",
-        images: ["/products/meeting-table-10pax.jpg"],
+        images: ["/images/products/meeting-table-10pax.webp"],
         features: ["Power Box", "Wire Manager", "Premium Veneer", "10-12 Seater"],
         specs: [{ label: "Size", value: "3000 x 1200 mm" }],
         related: ["compact-meeting-table"]
@@ -114,7 +114,7 @@ export const products: Product[] = [
         category: "Meeting Tables",
         price: "₹45,000",
         description: "A round or square meeting table for huddle rooms and small discussions.",
-        images: ["/products/meeting-table-6pax.jpg"],
+        images: ["/images/products/meeting-table-6pax.webp"],
         features: ["Compact", "Stable Base", "Modern Look"],
         specs: [{ label: "Seating", value: "4-6 Pax" }],
         related: ["executive-meeting-table"]
@@ -126,7 +126,7 @@ export const products: Product[] = [
         category: "Meeting Tables",
         price: "PO A",
         description: "Specialized table designed for video conferencing, ensuring everyone is visible.",
-        images: ["/products/meeting table top render.jpg"],
+        images: ["/images/products/meeting table top render.webp"],
         features: ["V-Shape", "Integrated Tech", "Acoustics"],
         specs: [{ label: "Type", value: "Video Conference" }],
         related: ["executive-meeting-table"]
@@ -140,7 +140,7 @@ export const products: Product[] = [
         category: "Soft Seating",
         price: "₹85,000",
         description: "Crafted calm. A plush soft seating collection designed for lobbies and collaborative breakout zones.",
-        images: ["/products/solace-chair-1.jpg", "/products/softseating-solace-1.jpg"],
+        images: ["/images/products/solace-chair-1.webp", "/images/products/softseating-solace-1.webp"],
         features: ["Premium Upholstery", "Acoustic Comfort", "Modular"],
         specs: [{ label: "Configuration", value: "Lounge" }],
         related: ["myel-executive-chair"]
@@ -154,7 +154,7 @@ export const products: Product[] = [
         category: "Storage",
         price: "₹8,500",
         description: "Essential mobile pedestal for under-desk storage. Lockable and durable.",
-        images: ["/products/cabin drawer close up render.jpg"],
+        images: ["/images/products/cabin drawer close up render.webp"],
         features: ["3 Drawers", "Central Lock", "Castors"],
         specs: [{ label: "Material", value: "Metal / Laminate" }],
         related: ["office-storage"]
@@ -166,7 +166,7 @@ export const products: Product[] = [
         category: "Storage",
         price: "₹25,000",
         description: "Full-height storage units and filing cabinets to keep your office organized.",
-        images: ["/products/cabin electrical render .jpg"],
+        images: ["/images/products/cabin electrical render .webp"],
         features: ["Adjustable Shelves", "Lockable", "Modular"],
         specs: [{ label: "Height", value: "2100mm" }],
         related: ["cabin-drawer"]
@@ -180,7 +180,7 @@ export const products: Product[] = [
         category: "Others",
         price: "₹3,50,000",
         description: "A private acoustic pod for focused work or phone calls. Soundproof and ventilated.",
-        images: ["/products/nuvora-pod-1.jpg"],
+        images: ["/images/products/nuvora-pod-1.webp"],
         features: ["Soundproof", "Ventilation", "Lighting", "Power Socket"],
         specs: [{ label: "Size", value: "1 Pax" }],
         related: ["nuvora-pod-2"]
@@ -192,7 +192,7 @@ export const products: Product[] = [
         category: "Others",
         price: "PO A",
         description: "Larger acoustic pod variations.",
-        images: ["/products/nuvora-pod-2.jpg"],
+        images: ["/images/products/nuvora-pod-2.webp"],
         features: ["Soundproof", "Ventilation"],
         specs: [{ label: "Variant", value: "Model 2" }],
         related: ["nuvora-pod"]
@@ -204,7 +204,7 @@ export const products: Product[] = [
         category: "Others",
         price: "PO A",
         description: "Larger acoustic pod variations.",
-        images: ["/products/nuvora-pod-3.jpg"],
+        images: ["/images/products/nuvora-pod-3.webp"],
         features: ["Soundproof", "Ventilation"],
         specs: [{ label: "Variant", value: "Model 3" }],
         related: ["nuvora-pod"]
@@ -216,7 +216,7 @@ export const products: Product[] = [
         category: "Others",
         price: "₹1,500",
         description: "Desk accessory for organizing documents.",
-        images: ["/products/dauble paper tray.jpg"],
+        images: ["/images/products/dauble paper tray.webp"],
         features: ["Double Tray", "Stackable"],
         specs: [{ label: "Material", value: "Plastic/Mesh" }],
         related: ["deskpro-system"]
@@ -230,7 +230,7 @@ export const products: Product[] = [
         category: "Projects",
         price: "Project",
         description: "Office setup for Delhi Metro Rail Corporation.",
-        images: ["/photos/DMRC/hero.jpg"],
+        images: ["/hero/dmrc-hero.webp"],
         features: ["Large Scale", "Government"],
         specs: [{ label: "Location", value: "Delhi" }],
         related: []
@@ -242,7 +242,7 @@ export const products: Product[] = [
         category: "Projects",
         price: "Project",
         description: "Corporate office for Titan.",
-        images: ["/photos/Titan/hero.jpg"],
+        images: ["/hero/titan-hero.webp"],
         features: ["Corporate", "Workstations"],
         specs: [{ label: "Location", value: "Bangalore" }],
         related: []
@@ -254,7 +254,7 @@ export const products: Product[] = [
         category: "Projects",
         price: "Project",
         description: "Office interior for Usha International.",
-        images: ["/photos/Usha/hero.jpg"],
+        images: ["/hero/usha-hero.webp"],
         features: ["Corporate", "Design"],
         specs: [{ label: "Location", value: "Gurgaon" }],
         related: []
@@ -293,7 +293,7 @@ export const products: Product[] = [
         category: "Workstations",
         price: "PO A",
         description: "Minimalist design implementation for maximum focus. The Sleek system disappears into the room.",
-        images: ["/products/linear-workstation-1.jpg"], // Placeholder
+        images: ["/images/products/linear-workstation-1.webp"], // Placeholder
         features: ["Minimalist", "Hidden Cable Tray", "Slim Profile"],
         specs: [{ label: "Legs", value: "Aluminum Profile" }],
         related: ["linear-workstation"]
@@ -305,7 +305,7 @@ export const products: Product[] = [
         category: "Workstations",
         price: "PO A",
         description: "A future-proof workstation system that grows with your team. Reconfigurable and robust.",
-        images: ["/products/60x30-workstation-1.jpg"], // Placeholder
+        images: ["/images/products/60x30-workstation-1.webp"], // Placeholder
         features: ["Future Proof", "Reconfigurable", "Heavy Duty"],
         specs: [{ label: "load", value: "Tested for 150kg" }],
         related: ["60x30-modular"]
@@ -331,7 +331,7 @@ export const products: Product[] = [
         category: "Chairs",
         price: "PO A",
         description: "Precision engineering meets ergonomic excellence. Arvo is built for long work sessions.",
-        images: ["/products/chair-executive-1.jpg"], // Placeholder
+        images: ["/images/products/chair-myel-main.webp"], // Placeholder
         features: ["High Back", "Headrest", "4D Armrests"],
         specs: [{ label: "Base", value: "Chrome Star Base" }],
         related: ["snap-chair"]
@@ -379,7 +379,7 @@ export const products: Product[] = [
         category: "Chairs",
         price: "PO A",
         description: "Scandanavian inspired minimalism. Perfect for breakout zones and casual meetings.",
-        images: ["/products/chair-cafeteria.jpg"], // Placeholder
+        images: ["/images/products/chair-cafeteria.webp"], // Placeholder
         features: ["Wooden Legs", "Shell Design", "Minimalist"],
         specs: [{ label: "Style", value: "Nordic" }],
         related: ["ember-chair"]
@@ -417,7 +417,7 @@ export const products: Product[] = [
         category: "Meeting Tables",
         price: "PO A",
         description: "Designed for teamwork. The Collaborate table brings people together effortlessly.",
-        images: ["/products/meeting-table-6pax.jpg"], // Placeholder
+        images: ["/images/products/meeting-table-6pax.webp"], // Placeholder
         features: ["Cable Management", "Durable Top", "Various Sizes"],
         specs: [{ label: "Shape", value: "Rectangular / Racetrack" }],
         related: ["exquisite-table"]

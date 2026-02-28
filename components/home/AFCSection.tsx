@@ -14,7 +14,7 @@ export function PartnerSection() {
             {/* Partner Logo */}
             <div className="relative w-32 h-12 grayscale-0 opacity-100 transition-opacity hover:opacity-100">
               <Image
-                src="/logo-final.png"
+                src="/logo-final.webp"
                 alt="Logo"
                 width={120}
                 height={40}

@@ -11,7 +11,7 @@ const slides = [
     heading: "An office becomes\nmy office.",
     subheading: "Premium modular workstations — designed for India's modern workspace.",
     cta: { text: "Discover workstations", href: "/products?category=workstations" },
-    image: "/products/DESKPRO 120D RENDER 4.jpg",
+    image: "/images/products/DESKPRO 120D RENDER 4.webp",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const slides = [
     heading: "Better. Single.\nMore attractive.",
     subheading: "Ergonomic seating that adapts to every body and every workspace.",
     cta: { text: "Explore seating", href: "/products?category=seating" },
-    image: "/products/chair-mesh-office.jpg",
+    image: "/images/products/chair-mesh-office.webp",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const slides = [
     heading: "Space for\ncollaboration!",
     subheading: "Versatile conference and meeting furniture for modern teams.",
     cta: { text: "View meeting tables", href: "/products?category=conference" },
-    image: "/products/meeting-table-8pax.jpg",
+    image: "/images/products/meeting-table-8pax.webp",
   },
 ];
 

@@ -65,20 +65,6 @@ const ALL_CLIENTS: ClientBadgeData[] = [
   { name: "ZTE", sector: "Telecom" },
 ];
 
-const SECTORS = [
-  "All",
-  "Government",
-  "Finance",
-  "Manufacturing",
-  "Energy",
-  "Automotive",
-  "FMCG",
-  "NGO / UN",
-  "Education",
-  "Telecom",
-  "Corporate",
-];
-
 export default function ProjectsPage() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">

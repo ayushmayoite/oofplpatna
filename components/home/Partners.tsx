@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 import Image from "next/image";
 
 const PARTNERS = [
@@ -46,9 +44,11 @@ export function Partners() {
                 key={`${client.name}-${index}`}
                 className="flex items-center justify-center h-20 w-40 shrink-0 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500"
               >
-                <img
+                <Image
                   src={client.src}
                   alt={client.name}
+                  width={160}
+                  height={80}
                   className="object-contain h-full w-full mix-blend-screen"
                 />
               </div>

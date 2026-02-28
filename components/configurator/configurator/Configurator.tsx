@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Check, RotateCcw, MousePointerClick } from "lucide-react";
-import { motion, useSpring, useTransform } from "framer-motion";
+import { Check, RotateCcw } from "lucide-react";
+import { motion, useSpring } from "framer-motion";
 
 type DecorColor = {
     id: string;

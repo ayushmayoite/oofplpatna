@@ -20,19 +20,19 @@ export function getRecommendedProducts(config: ConfigState): RecommendedProduct[
             products.push({
                 name: "Meeting Table 10-Pax",
                 slug: "meeting-table-10pax",
-                image: "/products/meeting-table-10pax.jpg",
+                image: "/images/products/meeting-table-10pax.webp",
             });
         } else if (seatingCount >= 8) {
             products.push({
                 name: "Meeting Table 8-Pax",
                 slug: "meeting-table-8pax",
-                image: "/products/meeting-table-8pax.jpg",
+                image: "/images/products/meeting-table-8pax.webp",
             });
         } else {
             products.push({
                 name: "Meeting Table 6-Pax",
                 slug: "meeting-table-6pax",
-                image: "/products/meeting-table-6pax.jpg",
+                image: "/images/products/meeting-table-6pax.webp",
             });
         }
         return products;
@@ -43,7 +43,7 @@ export function getRecommendedProducts(config: ConfigState): RecommendedProduct[
         products.push({
             name: "Executive Cabin Desk",
             slug: "cabin-executive",
-            image: "/products/cabin electrical render .jpg",
+            image: "/images/products/cabin electrical render .webp",
         });
         return products;
     }
@@ -54,43 +54,43 @@ export function getRecommendedProducts(config: ConfigState): RecommendedProduct[
             products.push({
                 name: "Linear Workstation System",
                 slug: "linear-workstation",
-                image: "/products/linear-workstation-1.jpg",
+                image: "/images/products/linear-workstation-1.webp",
             });
             products.push({
                 name: "Linear Bench Desking",
                 slug: "linear-bench",
-                image: "/products/linear-workstation-2.jpg",
+                image: "/images/products/linear-workstation-2.webp",
             });
         }
     } else if (layout === "cluster-4") {
         products.push({
             name: "DeskPro 4-Person Cluster",
             slug: "deskpro-cluster-4",
-            image: "/products/deskpro-workstation-1.jpg",
+            image: "/images/products/deskpro-workstation-1.webp",
         });
     } else if (layout === "cluster-6") {
         products.push({
             name: "DeskPro 6-Person Cluster",
             slug: "deskpro-cluster-6",
-            image: "/products/deskpro-workstation-2.jpg",
+            image: "/images/products/deskpro-workstation-2.webp",
         });
     } else if (layout === "l-shape") {
         products.push({
             name: "L-Shape Workstation",
             slug: "l-shape-desk",
-            image: "/products/60x30-workstation-1.jpg",
+            image: "/images/products/60x30-workstation-1.webp",
         });
     } else if (layout === "u-shape") {
         products.push({
             name: "U-Shape Executive Desk",
             slug: "u-shape-desk",
-            image: "/products/60x30-workstation-2.jpg",
+            image: "/images/products/60x30-workstation-2.webp",
         });
     } else if (layout === "hybrid-mix") {
         products.push({
             name: "Hybrid Workstation Mix",
             slug: "hybrid-workstation",
-            image: "/products/deskpro-workstation-3.jpg",
+            image: "/images/products/deskpro-workstation-3.webp",
         });
     }
 
@@ -99,7 +99,7 @@ export function getRecommendedProducts(config: ConfigState): RecommendedProduct[
         products.push({
             name: "DeskPro Modular Workstation",
             slug: "deskpro-modular",
-            image: "/products/deskpro-workstation-1.jpg",
+            image: "/images/products/deskpro-workstation-1.webp",
         });
     }
 

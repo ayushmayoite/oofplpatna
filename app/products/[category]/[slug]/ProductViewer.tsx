@@ -14,12 +14,15 @@ import {
   Award,
   ThumbsUp,
   Share2,
+  ShoppingCart,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import clsx from "clsx";
 import ThreeViewer from "@/components/ThreeViewer";
 import { Reviews } from "@/components/Reviews";
 import { ProductGallery } from "@/components/ProductGallery";
+import { useQuoteCart } from "@/lib/store/quoteCart";
 
 interface ProductViewerProps {
   product: Product;
@@ -33,6 +36,7 @@ export function ProductViewer({
   seriesName,
   categoryRoute,
 }: ProductViewerProps) {
+  const addItem = useQuoteCart((state) => state.addItem);
   const cleanName = (raw: string) => {
     if (!raw) return raw;
     const m = raw.match(/^([A-Z][a-z]+(?:[- ][A-Z][a-z0-9]*)?)\1/);
@@ -256,9 +260,11 @@ export function ProductViewer({
                     <ThreeViewer
                       modelUrl={modelPath}
                       fallback={
-                        <img
+                        <Image
                           src={uniqueImages[0]}
                           alt={product.name}
+                          width={1200}
+                          height={900}
                           className="w-full h-full object-contain"
                         />
                       }
@@ -417,6 +423,24 @@ export function ProductViewer({
 
             {/* CTA */}
             <div className="mb-8">
+              <button
+                type="button"
+                onClick={() =>
+                  addItem({
+                    id: `quote-${product.slug || product.id}`,
+                    name: cleanName(product.name),
+                    image: uniqueImages[0],
+                    href: `${categoryRoute}/${product.slug || product.id}`,
+                    qty: 1,
+                  })
+                }
+                className="group mb-2 flex w-full items-center justify-between border border-primary text-primary px-6 py-3.5 hover:bg-primary hover:text-white transition-colors"
+              >
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]">
+                  Add to Quote Cart
+                </span>
+                <ShoppingCart className="w-4 h-4" />
+              </button>
               <Link
                 href="/contact"
                 className="group flex w-full items-center justify-between bg-neutral-900 text-white px-6 py-4 hover:bg-neutral-800 transition-colors"

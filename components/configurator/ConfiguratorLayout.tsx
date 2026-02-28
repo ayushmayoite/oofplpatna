@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useConfigurator } from "./ConfiguratorContext";
 import { ConfiguratorPreview } from "./ConfiguratorPreview";
 import { ConfiguratorSteps } from "./ConfiguratorSteps";
 import { SummaryPanel } from "./SummaryPanel";

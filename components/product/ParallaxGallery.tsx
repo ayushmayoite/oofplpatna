@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 interface ParallaxGalleryProps {
     image: string;
@@ -19,9 +20,11 @@ export function ParallaxGallery({ image, caption }: ParallaxGalleryProps) {
     return (
         <section id="gallery" ref={sectionRef} className="relative h-[60vh] md:h-[80vh] overflow-hidden w-full">
             <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%]">
-                <img
+                <Image
                     src={image}
                     alt="Gallery Image"
+                    fill
+                    sizes="100vw"
                     className="w-full h-full object-cover"
                 />
             </motion.div>

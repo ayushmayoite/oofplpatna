@@ -7,37 +7,37 @@ const categories = [
   {
     name: "Workstations",
     description: "High-quality design, clear design language and technical innovation",
-    image: "/products/deskpro-workstation-1.jpg",
+    image: "/images/products/deskpro-workstation-1.webp",
     href: "/products?category=workstations",
   },
   {
     name: "Office Chairs",
     description: "Ergonomic task & executive seating for every workspace",
-    image: "/products/chair-mesh-office.jpg",
+    image: "/images/products/chair-mesh-office.webp",
     href: "/products?category=seating",
   },
   {
     name: "Soft Seating",
     description: "Lounge & collaborative seating for modern offices",
-    image: "/products/softseating-solace-1.jpg",
+    image: "/images/products/softseating-solace-1.webp",
     href: "/products?category=seating",
   },
   {
     name: "Cafeteria",
     description: "Break room & dining furniture for every team",
-    image: "/products/chair-cafeteria.jpg",
+    image: "/images/products/chair-cafeteria.webp",
     href: "/products?category=seating",
   },
   {
     name: "Meeting Tables",
     description: "Conference & collaboration tables for modern teams",
-    image: "/products/meeting-table-8pax.jpg",
+    image: "/images/products/meeting-table-8pax.webp",
     href: "/products?category=conference",
   },
   {
     name: "Storage",
     description: "Pedestals, cabinets & shelving — plenty of space",
-    image: "/products/cabin drawer close up render.jpg",
+    image: "/images/products/cabin drawer close up render.webp",
     href: "/products?category=storage",
   },
 ];
