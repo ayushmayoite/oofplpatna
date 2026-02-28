@@ -730,7 +730,8 @@ function AdvancedFilterGridInner({
         options.featureAvailability.isHeightAdjustable ||
         options.featureAvailability.bifmaCertified ||
         options.featureAvailability.isStackable) &&
-        (categoryId === "chairs-mesh" ||
+        (categoryId === "seating" ||
+          categoryId === "chairs-mesh" ||
           categoryId === "chairs-others" ||
           categoryId === "cafe-seating" ||
           categoryId === "oando-seating") && (

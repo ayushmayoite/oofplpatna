@@ -4,27 +4,27 @@ const nextConfig = {
     return [
       {
         source: "/products/oando-chairs",
-        destination: "/products/chairs-others",
+        destination: "/products/seating",
         permanent: false,
       },
       {
         source: "/products/oando-chairs/:slug",
-        destination: "/products/oando-seating/:slug",
+        destination: "/products/seating/:slug",
         permanent: false,
       },
       {
         source: "/products/oando-other-seating",
-        destination: "/products/chairs-others",
+        destination: "/products/seating",
         permanent: false,
       },
       {
         source: "/products/oando-other-seating/:slug",
-        destination: "/products/oando-seating/:slug",
+        destination: "/products/seating/:slug",
         permanent: false,
       },
       {
         source: "/products/oando-seating",
-        destination: "/products/chairs-others",
+        destination: "/products/seating",
         permanent: false,
       },
       {
@@ -34,7 +34,7 @@ const nextConfig = {
       },
       {
         source: "/products/oando-tables",
-        destination: "/products/meeting-conference-tables",
+        destination: "/products/tables",
         permanent: false,
       },
       {
@@ -49,12 +49,47 @@ const nextConfig = {
       },
       {
         source: "/products/oando-collaborative",
-        destination: "/products/others-1",
+        destination: "/products/soft-seating",
         permanent: false,
       },
       {
         source: "/products/oando-educational",
         destination: "/products/education",
+        permanent: false,
+      },
+      {
+        source: "/products/chairs-mesh",
+        destination: "/products/seating",
+        permanent: false,
+      },
+      {
+        source: "/products/chairs-others",
+        destination: "/products/seating",
+        permanent: false,
+      },
+      {
+        source: "/products/cafe-seating",
+        destination: "/products/seating",
+        permanent: false,
+      },
+      {
+        source: "/products/desks-cabin-tables",
+        destination: "/products/tables",
+        permanent: false,
+      },
+      {
+        source: "/products/meeting-conference-tables",
+        destination: "/products/tables",
+        permanent: false,
+      },
+      {
+        source: "/products/others-1",
+        destination: "/products/soft-seating",
+        permanent: false,
+      },
+      {
+        source: "/products/others-2",
+        destination: "/products/seating",
         permanent: false,
       },
     ];

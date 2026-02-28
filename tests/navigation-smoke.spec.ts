@@ -27,7 +27,7 @@ test.describe("Navigation Redesign Smoke", () => {
     await expect(page.getByRole("dialog", { name: /Mobile navigation/i })).toBeVisible();
 
     const accordionButton = page
-      .getByRole("button", { name: /Seating|Workspaces|Tables|Storage|Specialty/i })
+      .getByRole("button", { name: /Seating|Workstations|Tables|Storages|Soft Seating|Education/i })
       .first();
     await accordionButton.click();
 
@@ -47,7 +47,7 @@ test.describe("Navigation Redesign Smoke", () => {
   });
 
   test("quote cart badge updates after adding product", async ({ page }) => {
-    await page.goto("/products/chairs-mesh");
+    await page.goto("/products/seating");
     const addToQuote = page.getByRole("button", { name: /Add To Quote/i }).first();
     await expect(addToQuote).toBeVisible();
     await addToQuote.click();

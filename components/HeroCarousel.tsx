@@ -23,7 +23,7 @@ const slides = [
     src: "/images/hero/hero-3.webp",
     headline: "Inspire Every\nConversation",
     sub: "Conference and meeting solutions that command attention.",
-    cta: { label: "Explore Seating Solutions", href: "/products/chairs-mesh" },
+    cta: { label: "Explore Seating Solutions", href: "/products/seating" },
   },
   {
     src: "/images/hero/hero-4.webp",

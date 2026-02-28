@@ -5,8 +5,8 @@ test.describe('Homepage & Category Grid', () => {
     // Navigate to the local dev server
     await page.goto('http://localhost:3000/');
 
-    // Find all links that go to /products/oando-seating
-    const seatingLinks = await page.locator('a[href="/products/oando-seating"]').count();
+    // Find all links that go to /products/seating
+    const seatingLinks = await page.locator('a[href="/products/seating"]').count();
 
     // There should only be ONE seating category link if the data duplicate bug is fixed
     expect(seatingLinks).toBe(1);

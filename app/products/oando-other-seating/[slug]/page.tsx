@@ -6,5 +6,5 @@ export default async function OandoOtherSeatingProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  redirect(`/products/oando-chairs/${slug}`);
+  redirect(`/products/seating/${slug}`);
 }

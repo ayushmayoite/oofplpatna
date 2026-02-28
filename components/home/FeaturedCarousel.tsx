@@ -14,7 +14,7 @@ const FEATURED_PRODUCTS = [
     description:
       "The next generation of ergonomic performance. Designed for movement.",
     image: "/images/afc/oando-seating--fluid-x/image-1.webp",
-    link: "/products/oando-seating/oando-seating--fluid-x",
+    link: "/products/seating/oando-seating--fluid-x",
     theme: "light",
   },
   {
@@ -24,7 +24,7 @@ const FEATURED_PRODUCTS = [
     description:
       "Modular architecture to support any way of working, anywhere.",
     image: "/images/afc/oando-workstations--deskpro/image-1.webp",
-    link: "/products/oando-workstations/oando-workstations--deskpro",
+    link: "/products/workstations/oando-workstations--deskpro",
     theme: "dark",
   },
   {
@@ -34,7 +34,7 @@ const FEATURED_PRODUCTS = [
     description:
       "Where focus meets comfort. The perfect acoustic pod for deep work.",
     image: "/images/products/imported/cocoon/image-1.webp",
-    link: "/products/oando-collaborative/oando-collaborative--cocoon-pod",
+    link: "/products/soft-seating/oando-collaborative--cocoon-pod",
     theme: "light",
   },
 ];

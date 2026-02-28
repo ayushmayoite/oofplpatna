@@ -17,15 +17,22 @@ import {
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.oando.co.in";
 
 const LEGACY_CATEGORY_REDIRECTS: Record<string, string> = {
-  "oando-seating": "chairs-others",
+  "oando-seating": "seating",
   "oando-workstations": "workstations",
-  "oando-tables": "meeting-conference-tables",
+  "oando-tables": "tables",
   "oando-storage": "storages",
   "oando-soft-seating": "soft-seating",
-  "oando-collaborative": "others-1",
+  "oando-collaborative": "soft-seating",
   "oando-educational": "education",
-  "oando-chairs": "chairs-others",
-  "oando-other-seating": "chairs-others",
+  "oando-chairs": "seating",
+  "oando-other-seating": "seating",
+  "chairs-mesh": "seating",
+  "chairs-others": "seating",
+  "cafe-seating": "seating",
+  "desks-cabin-tables": "tables",
+  "meeting-conference-tables": "tables",
+  "others-1": "soft-seating",
+  "others-2": "seating",
 };
 
 export async function generateMetadata({

@@ -17,13 +17,13 @@ const PREVIEW_ITEMS = [
     name: "Fluid X Chairs",
     category: "Seating Solution",
     image: "/images/hero/chairs.webp",
-    href: "/products/chairs-mesh",
+    href: "/products/seating",
   },
   {
     name: "Convene Tables",
     category: "Tables",
     image: "/images/hero/tables.webp",
-    href: "/products/meeting-conference-tables",
+    href: "/products/tables",
   },
 ];
 

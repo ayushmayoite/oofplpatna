@@ -1,21 +1,97 @@
 import { supabase } from "@/lib/db";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { ProductViewer } from "./ProductViewer";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import type { Product, CompatProduct, ProductVariant } from "@/lib/getProducts";
+import { classifyToRequestedCategory } from "@/lib/afcCategories";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.oando.co.in";
+
+const LEGACY_CATEGORY_REDIRECTS: Record<string, string> = {
+  "oando-seating": "seating",
+  "oando-workstations": "workstations",
+  "oando-tables": "tables",
+  "oando-storage": "storages",
+  "oando-soft-seating": "soft-seating",
+  "oando-collaborative": "soft-seating",
+  "oando-educational": "education",
+  "oando-chairs": "seating",
+  "oando-other-seating": "seating",
+  "chairs-mesh": "seating",
+  "chairs-others": "seating",
+  "cafe-seating": "seating",
+  "desks-cabin-tables": "tables",
+  "meeting-conference-tables": "tables",
+  "others-1": "soft-seating",
+  "others-2": "seating",
+};
+
+type CategoryResolutionRow = {
+  id?: string;
+  slug?: string | null;
+  name?: string | null;
+  description?: string | null;
+  category_id?: string | null;
+  series_name?: string | null;
+  metadata?: Product["metadata"] | null;
+  images?: string[] | null;
+  flagship_image?: string | null;
+};
+
+function resolveRequestedCategoryId(
+  row: CategoryResolutionRow,
+  fallbackCategoryId?: string,
+): string {
+  const rawCategoryId = row.category_id || fallbackCategoryId || "";
+  const aliased = LEGACY_CATEGORY_REDIRECTS[rawCategoryId];
+  if (aliased) return aliased;
+
+  return classifyToRequestedCategory({
+    baseCategoryId: rawCategoryId,
+    seriesName: row.series_name || "",
+    product: {
+      id: row.id || row.slug || rawCategoryId,
+      slug: row.slug || "",
+      name: row.name || "",
+      description: row.description || "",
+      flagshipImage: row.flagship_image || "",
+      sceneImages: [],
+      variants: [],
+      detailedInfo: {
+        overview: "",
+        features: [],
+        dimensions: "",
+        materials: [],
+      },
+      metadata: row.metadata || {},
+      images: Array.isArray(row.images) ? row.images : [],
+    },
+  });
+}
 
 export async function generateStaticParams() {
   const { data, error } = await supabase
     .from("products")
-    .select("slug, category_id");
+    .select(
+      "id, slug, category_id, name, description, metadata, series_name, images, flagship_image",
+    );
   if (error || !data) {
     console.error("Error fetching products for static params:", error);
     return [];
   }
-  return data.map((p) => ({ category: p.category_id, slug: p.slug }));
+
+  const seen = new Set<string>();
+  const params: Array<{ category: string; slug: string }> = [];
+  for (const row of data as CategoryResolutionRow[]) {
+    if (!row.slug) continue;
+    const category = resolveRequestedCategoryId(row);
+    const key = `${category}::${row.slug}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    params.push({ category, slug: row.slug });
+  }
+  return params;
 }
 
 export async function generateMetadata({
@@ -27,11 +103,17 @@ export async function generateMetadata({
 
   const { data: product } = await supabase
     .from("products")
-    .select("*")
+    .select(
+      "id, slug, name, description, category_id, metadata, series_name, images, flagship_image",
+    )
     .eq("slug", slug)
     .single();
 
   if (!product) return {};
+  const resolvedCategoryId = resolveRequestedCategoryId(
+    product as CategoryResolutionRow,
+    categoryId,
+  );
 
   const title = `${product.name} | One and Only Furniture`;
   const description =
@@ -42,7 +124,7 @@ export async function generateMetadata({
     (images.length > 0 ? images[0] : null) ||
     product.flagship_image ||
     "/images/fallback/category.webp";
-  const url = `${BASE_URL}/products/${categoryId}/${slug}`;
+  const url = `${BASE_URL}/products/${resolvedCategoryId}/${slug}`;
 
   return {
     title,
@@ -105,6 +187,13 @@ async function ProductContent({
     } | null;
     variants?: unknown;
   };
+  const resolvedCategoryId = resolveRequestedCategoryId(
+    p as CategoryResolutionRow,
+    categoryId,
+  );
+  if (categoryId !== resolvedCategoryId) {
+    redirect(`/products/${resolvedCategoryId}/${slug}`);
+  }
   const aiOverview = p.alt_text || p.metadata?.ai_alt_text || p.description || "";
   const variantList: ProductVariant[] = Array.isArray(p.variants)
     ? p.variants
@@ -153,7 +242,7 @@ async function ProductContent({
     metadata: p.metadata || {},
   };
 
-  const url = `${BASE_URL}/products/${categoryId}/${p.slug}`;
+  const url = `${BASE_URL}/products/${resolvedCategoryId}/${p.slug}`;
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -168,7 +257,7 @@ async function ProductContent({
       priceCurrency: "INR",
       seller: { "@type": "Organization", name: "One and Only Furniture" },
     },
-    category: p.category_id,
+    category: resolvedCategoryId,
   };
 
   return (
@@ -180,8 +269,8 @@ async function ProductContent({
       <ProductViewer
         product={compatProduct}
         seriesName={p.series_name}
-        categoryRoute={`/products/${p.category_id || categoryId}`}
-        categoryId={p.category_id || categoryId}
+        categoryRoute={`/products/${resolvedCategoryId}`}
+        categoryId={resolvedCategoryId}
       />
     </>
   );

@@ -14,7 +14,7 @@ const DEFAULT_HOTSPOTS: Hotspot[] = [
     title: "Fluid X",
     description:
       "Ergonomic executive seating engineered for long-duration performance.",
-    linkUrl: "/products/oando-seating/oando-seating--fluid-x",
+    linkUrl: "/products/seating/oando-seating--fluid-x",
   },
   {
     id: "h2",
@@ -22,7 +22,7 @@ const DEFAULT_HOTSPOTS: Hotspot[] = [
     y: 65,
     title: "Cabin Workstation",
     description: "Modular L-shape workstation for focused, heads-down work.",
-    linkUrl: "/products/oando-workstations/cabin-l-shape",
+    linkUrl: "/products/workstations/cabin-l-shape",
   },
 ];
 

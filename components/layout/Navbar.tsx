@@ -55,7 +55,7 @@ const FEATURED_CARDS = [
   {
     title: "Ergonomic Seating",
     description: "Mesh chairs and premium seating for long working hours.",
-    href: "/products/chairs-mesh",
+    href: "/products/seating",
     image: "/images/products/imported/fluid/image-1.webp",
   },
   {

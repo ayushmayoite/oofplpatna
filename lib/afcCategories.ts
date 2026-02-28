@@ -1,48 +1,41 @@
 import type { CompatCategory, CompatProduct, CompatSeries } from "@/lib/getProducts";
 
 export const AFC_CATEGORY_ORDER = [
-  "chairs-mesh",
-  "chairs-others",
-  "soft-seating",
-  "cafe-seating",
-  "desks-cabin-tables",
+  "seating",
   "workstations",
-  "meeting-conference-tables",
+  "tables",
   "storages",
+  "soft-seating",
   "education",
-  "others-1",
-  "others-2",
 ] as const;
 
 export type RequestedCategoryId = (typeof AFC_CATEGORY_ORDER)[number];
 
 export const AFC_CATEGORY_LABELS: Record<RequestedCategoryId, string> = {
-  "chairs-mesh": "Chairs (Mesh)",
-  "chairs-others": "Chairs (Others)",
-  "soft-seating": "Soft Seating",
-  "cafe-seating": "Cafe Seating",
-  "desks-cabin-tables": "Desks (Cabin Tables)",
+  seating: "Seating",
   workstations: "Workstations",
-  "meeting-conference-tables": "Meeting and Conference Tables",
+  tables: "Tables",
   storages: "Storages",
+  "soft-seating": "Soft Seating",
   education: "Education",
-  "others-1": "Others 1",
-  "others-2": "Others 2",
 };
 
 export const AFC_CATEGORY_DESCRIPTIONS: Record<RequestedCategoryId, string> = {
-  "chairs-mesh": "Mesh-back seating for ergonomic, breathable daily use.",
-  "chairs-others": "Non-mesh task and visitor seating systems.",
+  seating: "Leather, mesh, training and cafe chair collections.",
+  workstations: "Height-adjustable, panel and desking workstation systems.",
+  tables: "Cabin, meeting, training and cafe table collections.",
+  storages: "Compactor, metal and prelam storage systems.",
   "soft-seating": "Lounge and comfort-focused seating collections.",
-  "cafe-seating": "Cafe, breakout, and informal dining seating.",
-  "desks-cabin-tables": "Desks and cabin tables for leadership workspaces.",
-  workstations: "Modular workstation systems for team productivity.",
-  "meeting-conference-tables":
-    "Meeting and conference table systems for collaboration.",
-  storages: "Office storage systems including cabinets and lockers.",
-  education: "Educational furniture for classrooms and institutions.",
-  "others-1": "Additional specialized workspace products.",
-  "others-2": "Additional workspace products and accessories.",
+  education: "Classroom, auditorium, hostel and library furniture systems.",
+};
+
+export const AFC_SUBCATEGORY_LABELS: Record<RequestedCategoryId, readonly string[]> = {
+  seating: ["Leather Chair", "Mesh Chair", "Training Chair", "Cafe Chair"],
+  workstations: ["Height Adjustable Series", "Panel Series", "Desking Series"],
+  tables: ["Cabin Tables", "Meeting Tables", "Training Tables", "Cafe Tables"],
+  storages: ["Compactor Storage", "Metal Storage", "Prelam Storage"],
+  "soft-seating": ["Lounge", "Sofa", "Collaborative", "Pouffee"],
+  education: ["Classroom", "Auditorium", "Hostel", "Library"],
 };
 
 type ProductWithContext = {
@@ -86,47 +79,132 @@ export function classifyToRequestedCategory(
 
   if (baseCategoryId === "oando-educational") return "education";
   if (baseCategoryId === "oando-storage") return "storages";
-  if (baseCategoryId === "oando-tables") {
-    if (
-      hasToken(text, "cabin") ||
-      hasToken(text, "desk") ||
-      hasToken(text, "l-shape") ||
-      hasToken(text, "executive")
-    ) {
-      return "desks-cabin-tables";
-    }
-    return "meeting-conference-tables";
+  if (baseCategoryId === "oando-tables") return "tables";
+  if (baseCategoryId === "oando-soft-seating") return "soft-seating";
+  if (baseCategoryId === "oando-collaborative") return "soft-seating";
+  if (baseCategoryId === "oando-workstations") return "workstations";
+  if (
+    baseCategoryId === "oando-seating" ||
+    baseCategoryId === "oando-other-seating" ||
+    baseCategoryId === "oando-chairs"
+  ) {
+    return "seating";
   }
-  if (baseCategoryId === "oando-collaborative") return "others-1";
 
   if (
-    hasToken(text, "cafe") ||
-    hasToken(text, "bar stool") ||
-    hasToken(text, "stool")
+    hasToken(text, "classroom") ||
+    hasToken(text, "auditorium") ||
+    hasToken(text, "hostel") ||
+    hasToken(text, "library")
   ) {
-    return "cafe-seating";
+    return "education";
   }
 
-  if (baseCategoryId === "oando-soft-seating") return "soft-seating";
+  if (
+    hasToken(text, "compactor") ||
+    hasToken(text, "metal storage") ||
+    hasToken(text, "prelam") ||
+    hasToken(text, "locker") ||
+    hasToken(text, "pedestal") ||
+    hasToken(text, "cabinet")
+  ) {
+    return "storages";
+  }
 
-  if (baseCategoryId === "oando-workstations") {
-    if (
-      hasToken(text, "desk") ||
-      hasToken(text, "deskpro") ||
-      hasToken(text, "cabin") ||
-      hasToken(text, "executive table")
-    ) {
-      return "desks-cabin-tables";
-    }
+  if (
+    hasToken(text, "lounge") ||
+    hasToken(text, "sofa") ||
+    hasToken(text, "collaborative") ||
+    hasToken(text, "pouffee") ||
+    hasToken(text, "pouf") ||
+    hasToken(text, "pod")
+  ) {
+    return "soft-seating";
+  }
+
+  if (
+    hasToken(text, "height adjustable") ||
+    hasToken(text, "height-adjustable") ||
+    hasToken(text, "panel series") ||
+    hasToken(text, "desking series") ||
+    hasToken(text, "workstation") ||
+    hasToken(text, "deskpro") ||
+    hasToken(text, "fenix")
+  ) {
     return "workstations";
   }
 
-  if (baseCategoryId === "oando-seating") {
-    if (hasToken(text, "mesh")) return "chairs-mesh";
-    return "chairs-others";
+  if (
+    hasToken(text, "cabin table") ||
+    hasToken(text, "meeting table") ||
+    hasToken(text, "training table") ||
+    hasToken(text, "cafe table") ||
+    hasToken(text, "conference table") ||
+    hasToken(text, "table")
+  ) {
+    return "tables";
   }
 
-  return "others-2";
+  if (
+    hasToken(text, "leather chair") ||
+    hasToken(text, "mesh chair") ||
+    hasToken(text, "training chair") ||
+    hasToken(text, "cafe chair") ||
+    hasToken(text, "chair")
+  ) {
+    return "seating";
+  }
+
+  return "seating";
+}
+
+function classifyToRequestedSubcategory(
+  categoryId: RequestedCategoryId,
+  item: ProductWithContext,
+): string {
+  const text = productText(item);
+
+  if (categoryId === "seating") {
+    if (hasToken(text, "mesh")) return "Mesh Chair";
+    if (hasToken(text, "training")) return "Training Chair";
+    if (hasToken(text, "cafe") || hasToken(text, "stool")) return "Cafe Chair";
+    return "Leather Chair";
+  }
+
+  if (categoryId === "workstations") {
+    if (hasToken(text, "height adjustable") || hasToken(text, "height-adjustable")) {
+      return "Height Adjustable Series";
+    }
+    if (hasToken(text, "panel")) return "Panel Series";
+    return "Desking Series";
+  }
+
+  if (categoryId === "tables") {
+    if (hasToken(text, "meeting") || hasToken(text, "conference")) return "Meeting Tables";
+    if (hasToken(text, "training")) return "Training Tables";
+    if (hasToken(text, "cafe")) return "Cafe Tables";
+    return "Cabin Tables";
+  }
+
+  if (categoryId === "storages") {
+    if (hasToken(text, "compactor")) return "Compactor Storage";
+    if (hasToken(text, "metal")) return "Metal Storage";
+    return "Prelam Storage";
+  }
+
+  if (categoryId === "soft-seating") {
+    if (hasToken(text, "sofa")) return "Sofa";
+    if (hasToken(text, "collaborative") || hasToken(text, "pod")) return "Collaborative";
+    if (hasToken(text, "pouffee") || hasToken(text, "pouf") || hasToken(text, "ottoman")) {
+      return "Pouffee";
+    }
+    return "Lounge";
+  }
+
+  if (hasToken(text, "auditorium")) return "Auditorium";
+  if (hasToken(text, "hostel")) return "Hostel";
+  if (hasToken(text, "library")) return "Library";
+  return "Classroom";
 }
 
 export function getAfcCategoryLabel(categoryId: string, fallback: string): string {
@@ -181,7 +259,15 @@ export function buildRequestedCategoryCatalog(
     for (const item of products) {
       const key = item.seriesName || "Series";
       if (!seriesMap.has(key)) seriesMap.set(key, []);
-      seriesMap.get(key)!.push(item.product);
+      const canonicalSubcategory = classifyToRequestedSubcategory(id, item);
+      seriesMap.get(key)!.push({
+        ...item.product,
+        metadata: {
+          ...(item.product.metadata || {}),
+          category: AFC_CATEGORY_LABELS[id],
+          subcategory: canonicalSubcategory,
+        },
+      });
     }
 
     const series: CompatSeries[] = [...seriesMap.entries()]

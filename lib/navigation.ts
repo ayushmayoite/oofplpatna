@@ -12,10 +12,11 @@ export interface GroupedCategory {
 
 export const NAV_CATEGORY_GROUP_ORDER = [
   "seating",
-  "workspaces",
+  "workstations",
   "tables",
-  "storage",
-  "specialty",
+  "storages",
+  "soft-seating",
+  "education",
 ] as const;
 
 export const NAV_CATEGORY_GROUPS: Record<
@@ -24,23 +25,27 @@ export const NAV_CATEGORY_GROUPS: Record<
 > = {
   seating: {
     label: "Seating",
-    ids: ["chairs-mesh", "chairs-others", "soft-seating", "cafe-seating"],
+    ids: ["seating"],
   },
-  workspaces: {
-    label: "Workspaces",
-    ids: ["workstations", "desks-cabin-tables"],
+  workstations: {
+    label: "Workstations",
+    ids: ["workstations"],
   },
   tables: {
     label: "Tables",
-    ids: ["meeting-conference-tables"],
+    ids: ["tables"],
   },
-  storage: {
-    label: "Storage",
+  storages: {
+    label: "Storages",
     ids: ["storages"],
   },
-  specialty: {
-    label: "Specialty",
-    ids: ["education", "others-1", "others-2"],
+  "soft-seating": {
+    label: "Soft Seating",
+    ids: ["soft-seating"],
+  },
+  education: {
+    label: "Education",
+    ids: ["education"],
   },
 };
 
@@ -95,4 +100,3 @@ export const NAV_RESOURCE_LINKS = [
   { label: "Sustainability", href: "/sustainability" },
   { label: "Downloads", href: "/downloads" },
 ] as const;
-

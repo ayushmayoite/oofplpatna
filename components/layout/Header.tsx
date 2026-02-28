@@ -20,7 +20,7 @@ const discoverMenuCards = [
     description:
       "Ergonomic seating systems designed for long-hour performance.",
     image: "/images/products/imported/fluid/image-1.webp",
-    href: "/products/chairs-mesh",
+    href: "/products/seating",
   },
   {
     title: "Workstation",

@@ -12,7 +12,7 @@ export default function WorkstationConfiguratorPage() {
           </Link>
           <span>/</span>
           <Link
-            href="/products/oando-workstations"
+            href="/products/workstations"
             className="hover:text-neutral-700 transition-colors"
           >
             Workstations
