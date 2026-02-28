@@ -74,11 +74,41 @@ function canonicalizeSubcategory(categoryId: string, rawValue: unknown): string 
   return "Classroom";
 }
 
+const CANONICAL_SUBCATEGORY_SLUGS: Record<string, string> = {
+  "Mesh chairs": "mesh-chair",
+  "Leather chairs": "leather-chair",
+  "Training chairs": "training-chair",
+  "Cafe chairs": "cafe-chair",
+  "Height Adjustable Series": "height-adjustable-series",
+  "Desking Series": "desking-series",
+  "Panel Series": "panel-series",
+  "Cabin Tables": "cabin-tables",
+  "Meeting Tables": "meeting-tables",
+  "Cafe Tables": "cafe-tables",
+  "Training Tables": "training-tables",
+  "Prelam Storage": "prelam-storage",
+  "Metal Storage": "metal-storage",
+  "Compactor Storage": "compactor-storage",
+  Locker: "locker",
+  Lounge: "lounge",
+  Sofa: "sofa",
+  Collaborative: "collaborative",
+  Pouffee: "pouffee",
+  "Occasional Tables": "occasional-tables",
+  Classroom: "classroom",
+  Library: "library",
+  Hostel: "hostel",
+  Auditorium: "auditorium",
+};
+
 function subcategoryId(value: string): string {
-  return value
+  return (
+    CANONICAL_SUBCATEGORY_SLUGS[value] ||
+    value
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/^-+|-+$/g, "")
+  );
 }
 
 export async function GET() {

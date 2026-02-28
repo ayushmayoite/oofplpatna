@@ -165,14 +165,14 @@ function classifySubcategory(
   const text = buildRowText(row);
 
   if (category === "seating") {
-    if (hasToken(text, "mesh")) return { label: "Mesh chairs", slug: "mesh-chairs" };
+    if (hasToken(text, "mesh")) return { label: "Mesh chairs", slug: "mesh-chair" };
     if (hasToken(text, "training")) {
-      return { label: "Training chairs", slug: "training-chairs" };
+      return { label: "Training chairs", slug: "training-chair" };
     }
     if (hasToken(text, "cafe") || hasToken(text, "stool")) {
-      return { label: "Cafe chairs", slug: "cafe-chairs" };
+      return { label: "Cafe chairs", slug: "cafe-chair" };
     }
-    return { label: "Leather chairs", slug: "leather-chairs" };
+    return { label: "Leather chairs", slug: "leather-chair" };
   }
 
   if (category === "workstations") {
