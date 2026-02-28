@@ -166,8 +166,8 @@ function classifySubcategory(
 
   if (category === "seating") {
     if (hasToken(text, "mesh")) return { label: "Mesh chairs", slug: "mesh-chair" };
-    if (hasToken(text, "training")) {
-      return { label: "Training chairs", slug: "training-chair" };
+    if (hasToken(text, "training") || hasToken(text, "study")) {
+      return { label: "Study chairs", slug: "study-chair" };
     }
     if (hasToken(text, "cafe") || hasToken(text, "stool")) {
       return { label: "Cafe chairs", slug: "cafe-chair" };

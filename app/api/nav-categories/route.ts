@@ -27,7 +27,7 @@ function canonicalizeSubcategory(categoryId: string, rawValue: unknown): string 
 
   if (categoryId === "seating") {
     if (value.includes("mesh")) return "Mesh chairs";
-    if (value.includes("training")) return "Training chairs";
+    if (value.includes("training") || value.includes("study")) return "Study chairs";
     if (value.includes("cafe") || value.includes("stool")) return "Cafe chairs";
     return "Leather chairs";
   }
@@ -77,7 +77,7 @@ function canonicalizeSubcategory(categoryId: string, rawValue: unknown): string 
 const CANONICAL_SUBCATEGORY_SLUGS: Record<string, string> = {
   "Mesh chairs": "mesh-chair",
   "Leather chairs": "leather-chair",
-  "Training chairs": "training-chair",
+  "Study chairs": "study-chair",
   "Cafe chairs": "cafe-chair",
   "Height Adjustable Series": "height-adjustable-series",
   "Desking Series": "desking-series",
