@@ -27,7 +27,7 @@
 - [x] Missing-alt report: `0` currently missing
 
 ## Pending Release Closure
-- [ ] Merge `feat/full-website-sync-20260301` into `main`
-- [ ] Confirm `main` auto-deploy triggers and passes after merge
-- [ ] Run post-merge smoke (`/`, `/products/`, `/products/seating/`, `/api/nav-categories/`)
+- [x] Merge `feat/full-website-sync-20260301` into `main`
+- [x] Confirm `main` auto-deploy triggers and passes after merge
+- [x] Run post-merge smoke (`/`, `/products/`, `/products/seating/`, `/api/nav-categories/`)
 - [ ] Monitor Vercel function logs for `/api/nav-search` and `/api/products/filter` for first 24h

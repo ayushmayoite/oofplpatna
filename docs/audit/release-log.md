@@ -85,3 +85,20 @@
 ## Status
 - Deployment and verification complete.
 - Branch is ready for merge to `main`.
+
+## Post-Merge Closure (2026-03-01)
+- Branch `feat/full-website-sync-20260301` fast-forward merged into `main`.
+- `origin/main` updated from `dfa72a53` to `0b230acd`.
+- Git-triggered Vercel production deployment observed and verified:
+  - Deployment id: `dpl_YBkd3zcVqpjX1KfaRf8tsqeSp6vB`
+  - URL: `https://oofplpatna-dzacjm218-ayushs-projects-850dfd33.vercel.app`
+  - Alias: `https://oofplpatna.vercel.app`
+  - Status: `Ready`
+- Post-merge production smoke:
+  - `/` -> 200
+  - `/products/` -> 200
+  - `/products/seating/` -> 200
+  - `/api/nav-categories/` -> 200
+  - `/robots.txt` -> 200
+  - `/sitemap.xml` -> 200
+  - Playwright navigation smoke -> 5/5 pass.
