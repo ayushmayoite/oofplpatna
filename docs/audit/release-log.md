@@ -41,3 +41,47 @@
 
 ## Status
 - Cleanup commit preserved locally and ready to push once permissions are corrected.
+
+---
+
+# Release Log (2026-03-01)
+
+## Scope
+- Objective: Deploy and verify dynamic filters + accessibility hardening + rollout checks on current active repo.
+- Branch used: `feat/full-website-sync-20260301`.
+
+## Deployments
+- Preview:
+  - `https://oofplpatna-up3bfggla-ayushs-projects-850dfd33.vercel.app`
+  - Build status: passed.
+- Production:
+  - Deployment URL: `https://oofplpatna-3i908yeit-ayushs-projects-850dfd33.vercel.app`
+  - Alias: `https://oofplpatna.vercel.app`
+  - Build status: passed.
+
+## Verification
+- Local gates:
+  - `npm run lint` -> pass
+  - `npm run build` -> pass
+  - `npm run test:e2e:filters` -> pass
+  - `npm run test:e2e:nav` -> pass
+  - `npm run test:a11y` -> pass
+- Production HTTP checks:
+  - `/` -> 200
+  - `/products/` -> 200
+  - `/products/seating/` -> 200
+  - `/api/nav-categories/` -> 200
+  - `/robots.txt` -> 200
+  - `/sitemap.xml` -> 200
+- Production smoke:
+  - Navigation Playwright suite -> 5/5 pass.
+
+## Operational Note
+- `scripts/sync-missing-alt-text.ts` updated to support:
+  - `.env.local` loading in local environments
+  - Supabase installations with or without `products.alt_text` column
+- Dry run result: 145 products scanned, 0 missing alt text.
+
+## Status
+- Deployment and verification complete.
+- Branch is ready for merge to `main`.
