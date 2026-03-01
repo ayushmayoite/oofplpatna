@@ -1,6 +1,10 @@
-import "dotenv/config";
+import { config as loadEnv } from "dotenv";
 import OpenAI from "openai";
 import { createClient } from "@supabase/supabase-js";
+
+// Support local developer env files first, then fall back to default dotenv lookup.
+loadEnv({ path: ".env.local", override: false, quiet: true });
+loadEnv({ quiet: true });
 
 type ProductRow = {
   id: string;
@@ -103,13 +107,35 @@ async function retry<T>(fn: () => Promise<T>, maxAttempts: number): Promise<T> {
 }
 
 async function run() {
-  const { data, error } = await supabase
+  let hasAltTextColumn = true;
+  let rows: ProductRow[] = [];
+
+  const withAltText = await supabase
     .from("products")
     .select("id,name,category_id,description,alt_text,metadata")
     .order("name", { ascending: true });
 
-  if (error) throw new Error(`Supabase read failed: ${error.message}`);
-  const rows = (data || []) as ProductRow[];
+  if (withAltText.error) {
+    if (withAltText.error.message.includes("column products.alt_text does not exist")) {
+      hasAltTextColumn = false;
+      const withoutAltText = await supabase
+        .from("products")
+        .select("id,name,category_id,description,metadata")
+        .order("name", { ascending: true });
+      if (withoutAltText.error) {
+        throw new Error(`Supabase read failed: ${withoutAltText.error.message}`);
+      }
+      rows = ((withoutAltText.data || []) as Omit<ProductRow, "alt_text">[]).map((row) => ({
+        ...row,
+        alt_text: null,
+      }));
+    } else {
+      throw new Error(`Supabase read failed: ${withAltText.error.message}`);
+    }
+  } else {
+    rows = (withAltText.data || []) as ProductRow[];
+  }
+
   const missing = rows.filter((row) => !hasExistingAlt(row));
   const target = limit > 0 ? missing.slice(0, limit) : missing;
 
@@ -143,12 +169,12 @@ async function run() {
             ...(row.metadata || {}),
             ai_alt_text: altText,
           };
+          const updatePayload = hasAltTextColumn
+            ? { alt_text: row.alt_text || altText, metadata }
+            : { metadata };
           const { error: updateError } = await supabase
             .from("products")
-            .update({
-              alt_text: row.alt_text || altText,
-              metadata,
-            })
+            .update(updatePayload)
             .eq("id", row.id);
           if (updateError) {
             throw new Error(`Update failed for ${row.id}: ${updateError.message}`);
